@@ -71,14 +71,6 @@ const EditorPage = () => {
   const checkEditorSession = useFile(state => state.checkEditorSession);
   const darkmodeEnabled = useConfig(state => state.darkmodeEnabled);
   const fullscreen = useGraph(state => state.fullscreen);
-  const setVisible = useModal(state => state.setVisible);
-
-  useEffect(() => {
-    const isUpgradeShown = Cookie.get("upgrade_shown");
-    if (!isUpgradeShown) {
-      setTimeout(() => setVisible("UpgradeModal", true), 30_000);
-    }
-  }, [setVisible]);
 
   useEffect(() => {
     if (isReady) checkEditorSession(query?.json);

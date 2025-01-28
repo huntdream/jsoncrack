@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Button, Text } from "@mantine/core";
 import styled from "styled-components";
-import { UpgradeContent } from "src/features/modals/UpgradeModal";
 
 const StyledNotSupported = styled.div`
   position: relative;
@@ -144,7 +143,6 @@ export const NotSupported = () => {
   return (
     <StyledNotSupported>
       <StyledContent>
-        <UpgradeContent direction="column-reverse" />
         <Text c="dimmed" maw="400" my="lg" ta="center">
           JSON Crack is unable to support data of this size. Please try our new editor for better
           performance.
