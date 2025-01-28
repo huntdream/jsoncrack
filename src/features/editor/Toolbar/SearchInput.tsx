@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, TextInput } from "@mantine/core";
+import { CloseButton, Flex, Text, TextInput } from "@mantine/core";
 import { getHotkeyHandler } from "@mantine/hooks";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useFocusNode } from "src/hooks/useFocusNode";
@@ -23,9 +23,17 @@ export const SearchInput = () => {
       rightSection={
         searchValue && (
           <Flex h={30} align="center">
-            <Text size="xs" c="dimmed" pr="md">
+            <Text size="xs" c="dimmed">
               {searchValue && `${nodeCount}/${nodeCount > 0 ? currentNode + 1 : "0"}`}
             </Text>
+            <CloseButton
+              size="sm"
+              radius="lg"
+              mr="20px"
+              aria-label="Clear input"
+              onClick={() => setValue("")}
+              style={{ display: searchValue ? undefined : "none" }}
+            />
           </Flex>
         )
       }

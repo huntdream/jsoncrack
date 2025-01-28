@@ -1,6 +1,5 @@
 import React from "react";
 import { useDebouncedValue } from "@mantine/hooks";
-import { event as gaEvent } from "nextjs-google-analytics";
 import useGraph from "src/features/editor/views/GraphView/stores/useGraph";
 import { searchQuery, cleanupHighlight, highlightMatchedNodes } from "src/lib/utils/search";
 
@@ -38,8 +37,6 @@ export const useFocusNode = () => {
       setSelectedNode(0);
       setNodeCount(0);
     }
-
-    gaEvent("search_graph");
   }, [selectedNode, debouncedValue, value, viewPort]);
 
   return [value, setValue, skip, nodeCount, selectedNode] as const;

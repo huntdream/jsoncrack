@@ -2,7 +2,6 @@ import React from "react";
 import { Menu, Flex, Text, SegmentedControl } from "@mantine/core";
 import { useHotkeys, useSessionStorage } from "@mantine/hooks";
 import styled from "styled-components";
-import { event as gaEvent } from "nextjs-google-analytics";
 import toast from "react-hot-toast";
 import { CgChevronDown } from "react-icons/cg";
 import { TiFlowMerge } from "react-icons/ti";
@@ -79,7 +78,7 @@ export const ViewMenu = () => {
   return (
     <Menu shadow="md" closeOnItemClick={false} withArrow>
       <Menu.Target>
-        <StyledToolElement onClick={() => gaEvent("show_view_menu")}>
+        <StyledToolElement>
           <Flex align="center" gap={3}>
             View <CgChevronDown />
           </Flex>
@@ -92,7 +91,6 @@ export const ViewMenu = () => {
           value={viewMode}
           onChange={e => {
             setViewMode(e as ViewMode);
-            gaEvent("change_view_mode", { label: e });
           }}
           data={[
             { value: ViewMode.Graph, label: "Graph" },
@@ -107,7 +105,6 @@ export const ViewMenu = () => {
               fz={12}
               onClick={() => {
                 toggleDirection();
-                gaEvent("rotate_layout", { label: direction });
               }}
               leftSection={<StyledFlowIcon rotate={rotateLayout(direction || "RIGHT")} />}
               rightSection={
@@ -122,7 +119,6 @@ export const ViewMenu = () => {
               fz={12}
               onClick={() => {
                 toggleExpandCollapseGraph();
-                gaEvent("expand_collapse_graph", { label: graphCollapsed ? "expand" : "collapse" });
               }}
               leftSection={graphCollapsed ? <VscExpandAll /> : <VscCollapseAll />}
               rightSection={

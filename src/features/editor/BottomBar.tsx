@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Flex, Popover, Text } from "@mantine/core";
 import styled from "styled-components";
-import { event as gaEvent } from "nextjs-google-analytics";
 import { BiSolidDockLeft } from "react-icons/bi";
 import {
   VscCheck,
@@ -91,7 +90,6 @@ export const BottomBar = () => {
 
   const toggleEditor = () => {
     toggleFullscreen(!fullscreen);
-    gaEvent("toggle_fullscreen");
   };
 
   React.useEffect(() => {
@@ -129,7 +127,6 @@ export const BottomBar = () => {
         <StyledBottomBarItem
           onClick={() => {
             toggleLiveTransform(!liveTransformEnabled);
-            gaEvent("toggle_live_transform");
           }}
         >
           {liveTransformEnabled ? <VscSync /> : <VscSyncIgnored />}

@@ -11,7 +11,6 @@ import {
   ColorInput,
 } from "@mantine/core";
 import { toBlob, toJpeg, toPng, toSvg } from "html-to-image";
-import { event as gaEvent } from "nextjs-google-analytics";
 import toast from "react-hot-toast";
 import { FiCopy, FiDownload } from "react-icons/fi";
 
@@ -90,7 +89,6 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       ]);
 
       toast.success("Copied to clipboard");
-      gaEvent("clipboard_img");
     } catch (error) {
       toast.error("Failed to copy to clipboard");
     } finally {
@@ -111,7 +109,6 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       });
 
       downloadURI(dataURI, `${fileDetails.filename}.${extension}`);
-      gaEvent("download_img", { label: extension });
     } catch (error) {
       toast.error("Failed to download image!");
     } finally {

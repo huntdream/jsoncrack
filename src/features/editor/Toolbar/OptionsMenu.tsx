@@ -1,6 +1,5 @@
 import React from "react";
 import { Menu, Text, Flex } from "@mantine/core";
-import { event as gaEvent } from "nextjs-google-analytics";
 import { BsCheck2 } from "react-icons/bs";
 import { MdSettings } from "react-icons/md";
 import useConfig from "src/store/useConfig";
@@ -35,7 +34,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={rulersEnabled ? 100 : 0} />}
           onClick={() => {
             toggleRulers(!rulersEnabled);
-            gaEvent("toggle_rulers", { label: rulersEnabled ? "on" : "off" });
           }}
         >
           <Text size="xs">Rulers</Text>
@@ -44,7 +42,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={gesturesEnabled ? 100 : 0} />}
           onClick={() => {
             toggleGestures(!gesturesEnabled);
-            gaEvent("toggle_gestures", { label: gesturesEnabled ? "on" : "off" });
           }}
         >
           <Text size="xs">Trackpad Gestures</Text>
@@ -53,7 +50,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={childrenCountVisible ? 100 : 0} />}
           onClick={() => {
             toggleChildrenCount(!childrenCountVisible);
-            gaEvent("toggle_children_count", { label: childrenCountVisible ? "on" : "off" });
           }}
         >
           <Text size="xs">Item Count</Text>
@@ -62,7 +58,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={imagePreviewEnabled ? 100 : 0} />}
           onClick={() => {
             toggleImagePreview(!imagePreviewEnabled);
-            gaEvent("toggle_image_preview", { label: imagePreviewEnabled ? "on" : "off" });
           }}
         >
           <Text size="xs">Image Link Preview</Text>
@@ -71,7 +66,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={collapseButtonVisible ? 100 : 0} />}
           onClick={() => {
             toggleCollapseButton(!collapseButtonVisible);
-            gaEvent("toggle_expand_collapse", { label: collapseButtonVisible ? "on" : "off" });
           }}
         >
           <Text size="xs">Show Expand/Collapse</Text>
@@ -80,7 +74,6 @@ export const OptionsMenu = () => {
           leftSection={<BsCheck2 opacity={darkmodeEnabled ? 100 : 0} />}
           onClick={() => {
             toggleDarkMode(!darkmodeEnabled);
-            gaEvent("toggle_dark_mode", { label: darkmodeEnabled ? "on" : "off" });
           }}
         >
           <Text size="xs">Dark Mode</Text>

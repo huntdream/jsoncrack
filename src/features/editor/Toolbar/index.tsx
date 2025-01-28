@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Flex, Group, Select, Button } from "@mantine/core";
+import { Flex, Group, Select } from "@mantine/core";
 import styled from "styled-components";
 import toast from "react-hot-toast";
 import { AiOutlineFullscreen } from "react-icons/ai";
@@ -85,19 +85,6 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
         </Group>
       )}
       <Group gap="6" justify="right" w="100%" style={{ flexWrap: "nowrap" }}>
-        {!isWidget && (
-          <Button
-            variant="light"
-            color="gray"
-            size="compact-sm"
-            fz="12"
-            fw="600"
-            mr="6"
-            onClick={() => setVisible("UpgradeModal", true)}
-          >
-            JSON Crack v2.0 🔥
-          </Button>
-        )}
         <SearchInput />
         {!isWidget && (
           <>
