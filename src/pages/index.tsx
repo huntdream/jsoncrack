@@ -7,7 +7,6 @@ import styled, { ThemeProvider } from "styled-components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
-import Cookie from "js-cookie";
 import { NextSeo } from "next-seo";
 import { SEO } from "src/constants/seo";
 import { darkTheme, lightTheme } from "src/constants/theme";
@@ -17,7 +16,6 @@ import { Toolbar } from "src/features/editor/Toolbar";
 import useGraph from "src/features/editor/views/GraphView/stores/useGraph";
 import useConfig from "src/store/useConfig";
 import useFile from "src/store/useFile";
-import useModal from "src/store/useModal";
 
 const ModalController = dynamic(() => import("src/features/modals/ModalController"));
 const ExternalMode = dynamic(() => import("src/features/editor/ExternalMode"));
